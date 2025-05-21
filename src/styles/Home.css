@@ -1,0 +1,40 @@
+.data-grid {
+    display: grid;
+    grid-template-columns: 1rem 1rem 1rem;
+    width: 90vw; min-height: 75vh;
+    background-color: var(--color3);
+    border: 1ps solid var(--color2);
+    border-radius: 14px;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.data-grid > .header {
+    position: absolute; top: 0;
+    left: 0; right: 0;
+    height: 60px;
+    background: var(--color5);
+    display: flex;
+    align-items: center; justify-content: end;
+}
+
+.data-grid > .header > .tools {
+    display: flex;
+    margin-right: 30px;
+}
+
+.tool {
+    color: var(--color3);
+    cursor: pointer;
+    margin: 12px;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: gray;
+        margin: 6px;
+        padding: 6px;
+        border-radius: 10px;
+        opacity: 0.8;
+    }
+}

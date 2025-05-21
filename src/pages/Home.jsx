@@ -7,8 +7,8 @@ function Home() {
         <div className="data-grid">
             <div className="header">
                 <div className="tools">
-                    <span className="material-icons tool" popoverTarget="create-project-popover" popoverTargetAction="show">add</span>
-                    <span className="material-icons tool">delete</span>
+                    <span className="material-icons tool add-tool" popoverTarget="create-project-popover" popoverTargetAction="show">add</span>
+                    <span className="material-icons tool delete-tool">delete</span>
                 </div>
             </div>
             <ProjectCreator />

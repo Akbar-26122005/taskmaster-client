@@ -1,7 +1,7 @@
 .data-grid {
     display: grid;
     grid-template-columns: 1rem 1rem 1rem;
-    width: 90vw; min-height: 75vh;
+    width: 800px; height: 600px;
     background-color: var(--color3);
     border: 1ps solid var(--color2);
     border-radius: 14px;
@@ -15,7 +15,12 @@
     height: 60px;
     background: var(--color5);
     display: flex;
-    align-items: center; justify-content: end;
+    align-items: center; justify-content: space-between;
+
+    h3 {
+        color: var(--color3);
+        padding-left: 30px;
+    }
 }
 
 .data-grid > .header > .tools {

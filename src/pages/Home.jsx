@@ -16,6 +16,7 @@ function Home() {
     return (
         <div className="data-grid">
             <div className="header">
+                <h3 className="no-copy">projects</h3>
                 <div className="tools no-copy">
                     <span className="material-icons tool add-tool" onClick={e => toolClick(e)}>add</span>
                     <span className="material-icons tool delete-tool" onClick={e => toolClick(e)}>delete</span>

@@ -22,6 +22,7 @@
   font-size: calc(10px + 2vmin);
   position: sticky; top: 0;
   width: 100vw; height: 120px;
+  z-index: 1;
 }
 
 .App-footer {

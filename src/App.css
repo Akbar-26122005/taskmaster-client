@@ -31,3 +31,34 @@
   align-items: center; justify-content: center;
   width: 100vw; min-height: 200px;
 }
+
+.message-list {
+  min-width: 350px;
+  min-height: 10px;
+  display: flex; flex-direction: column;
+  align-items: right;
+  position: fixed;
+  bottom: 20px; right: 20px;
+  gap: 10px;
+}
+
+.message-tile {
+  width: 300px;
+  border-radius: 10px;
+  background: orange;
+  color: #fff;
+  padding: 12px 12px;
+  cursor: pointer;
+}
+
+.accept-message {
+  background-color: green;
+}
+
+.warning-message {
+  background-color: orange;
+}
+
+.error-message {
+  background-color: red;
+}

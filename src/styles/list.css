@@ -1,0 +1,21 @@
+.list-tile {
+    width: 250px; height: 150px;
+    border: 2px solid #056555;
+    border-radius: 12px;
+    background: var(--color5);
+    cursor: pointer;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 10px;
+}
+
+.list-name {
+    font-size: 26px; color: #fff;
+    margin: 0 100px 40px 0;
+}
+
+.list-description {
+    font-size: 16px;
+    color: #fff;
+    margin-right: 80px;
+}

@@ -9,8 +9,12 @@ import Tasks from './pages/Tasks';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>logo</h1>
+      <header className="App-header no-copy">
+        <h1>task master</h1>
+        <div className="no-copy">
+          <div className="user-name">Akbar</div>
+          <div className="log-out-btn">Log out</div>
+        </div>
       </header>
 
       <Router>

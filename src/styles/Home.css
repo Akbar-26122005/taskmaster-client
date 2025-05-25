@@ -1,23 +1,18 @@
-.data-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 800px; height: 600px;
+.home {
+    min-width: 850px;
+    min-height: 500px;
     background-color: var(--color3);
-    border: 1ps solid var(--color2);
-    border-radius: 14px;
-    overflow-y: scroll;
-    position: relative;
-    padding: 80px 20px 20px 20px;
-    gap: 20px;
+    border: 1px solid var(--color2);
+    border-radius: 8px;
+    -ms-overflow-style: hide;
 }
 
-.data-grid > .header {
-    position: absolute; top: 0;
-    left: 0; right: 0;
+.home > .header {
     height: 60px;
     background: var(--color5);
     display: flex;
     align-items: center; justify-content: space-between;
+    border-radius: 8px 8px 0 0;
 
     h3 {
         color: var(--color3);
@@ -25,7 +20,7 @@
     }
 }
 
-.data-grid > .header > .tools {
+.home > .header > .tools {
     display: flex;
     margin-right: 30px;
 }
@@ -38,7 +33,6 @@
     transition: all 0.3s ease;
 
     &:hover {
-        background-color: gray;
         margin: 6px;
         padding: 6px;
         border-radius: 10px;
@@ -52,4 +46,32 @@
 
 .tool.delete-tool:hover {
     background: darkred;
+}
+
+
+.data-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow-y: scroll;
+    gap: 20px;
+    padding: 20px;
+    height: 400px;
+    position: relative;
+}
+
+.delete-button {
+    background: red;
+    border: 1px solid darkred;
+    border-radius: 6px;
+    padding: 4px 8px;
+    position: absolute;
+    color: #fff;
+    font-size: 20px;
+    bottom: 10px; right: 10px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+        opacity: 0.7;
+    }
 }

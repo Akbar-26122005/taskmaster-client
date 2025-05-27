@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import '../styles/Home.css';
-import ProjectCreator from "../components/createProject";
+import ProjectCreator from "../components/listCreator";
 // import { showMessage } from "../components/message";
 import ListTile from "../components/list";
+import add_icon from '../resources/add-icon.svg';
+import del_icon from '../resources/del-icon.svg';
 
 function Home() {
     const [refreshTrigger, setRefreshTrigger] = useState(false);
@@ -84,14 +86,18 @@ function Home() {
             <div className="header">
                 <h3 className="no-copy">tasks lists</h3>
                 <div className="tools no-copy">
-                    <span
-                        className="material-icons tool add-tool"
-                        onClick={e => toolClick(e)}>
-                        add</span>
-                    <span
-                        className={`material-icons tool delete-tool ${selectMode ? 'active' : ''}`}
-                        onClick={e => toolClick(e)}>
-                        delete</span>
+                    <img
+                        src={add_icon}
+                        alt="add"
+                        className="tool add-tool"
+                        onClick={toolClick}
+                    />
+                    <img
+                        src={del_icon}
+                        alt="add"
+                        className="tool del-tool"
+                        onClick={toolClick}
+                    />
                 </div>
             </div>
             <div className="data-grid">

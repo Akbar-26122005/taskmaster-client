@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../styles/createProject.css';
+import '../styles/listCreator.css';
 import { showMessage } from "./message";
 
 function ProjectCreator({closed, update}) {
@@ -7,7 +7,7 @@ function ProjectCreator({closed, update}) {
     const [projectDescription, setProjectDescription] = useState('');
 
     const Close = e => {
-        if (e.target.id === 'create-project')
+        if (e.target.id === 'list-creator')
             closed()
     };
 
@@ -45,7 +45,7 @@ function ProjectCreator({closed, update}) {
     };
 
     return (
-        <div id="create-project" onClick={e => Close(e)}>
+        <div id="list-creator" onClick={e => Close(e)}>
             <div id="create-form">
                 <div className="row head-title no-copy">
                     <h1>Create a new list</h1>

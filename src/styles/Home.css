@@ -44,7 +44,7 @@
     background: green;
 }
 
-.tool.delete-tool:hover {
+.tool.del-tool:hover {
     background: darkred;
 }
 

@@ -15,7 +15,7 @@ function ListTile({id, name, description, isSelectMode, isSelected, onSelect}) {
     };
 
     return (
-        <div className="list-tile" onClick={handleClick}>
+        <div className="list-tile no-copy" onClick={handleClick}>
             {isSelectMode && (
                 <input
                     type="checkbox"

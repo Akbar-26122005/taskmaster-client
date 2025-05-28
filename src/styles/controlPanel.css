@@ -1,0 +1,52 @@
+.control-panel {
+    margin-right: 60px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* Пользователь авторизован */
+.control-panel > .auth-btn {
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.control-panel > .log-in-btn {
+    &:hover {
+        color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+.control-panel > .sign-up-btn {
+    border: 1px solid #fff;
+    border-radius: 4px;
+    padding: 6px 12px;
+
+    &:hover {
+        color: rgba(255, 255, 255, 0.7);
+        border-color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+/* Пользователь не авторизован */
+.control-panel > .user-name {
+    text-decoration: underline;
+}
+.control-panel > .log-out-btn {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 650px) {
+    .control-panel {
+        margin-right: 20px;
+    }
+
+    .control-panel > .auth-btn {
+        font-size: 12px;
+    }
+}

@@ -3,7 +3,7 @@ import '../styles/list.css';
 import { useNavigate } from "react-router-dom";
 
 function ListTile({id, name, description, isSelectMode, isSelected, onSelect}) {
-    const navigate = useNavigate(`/tasks/${id}`);
+    const navigate = useNavigate();
 
     const handleClick = e => {
         if (isSelectMode) {

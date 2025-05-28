@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
-import Auth from './pages/Auth';
+import { LogIn, SignUp } from './pages/Auth';
 import NotFoundPage from './pages/NotFoundPage';
 import { MessageSystem } from './components/message';
 import Tasks from './pages/Tasks';
@@ -23,9 +23,9 @@ function App() {
         const data = await response.json();
 
         if (!data.isAuthenticated)
-          throw new Error('');
+          throw new Error('Пользователь еще не авторизовалсяy');
 
-        setUser();
+        setUser(data.user);
       } catch (err) {
         setUser(null);
         return;
@@ -37,25 +37,22 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header no-copy">
+      <header className={`App-header no-copy ${ window.location.href.includes('/auth/') ? 'hide' : '' }`}>
         <h1 className="main-title">task master</h1>
-        {/* <div className="no-copy">
-          <div className="user-name">Akbar</div>
-          <div className="log-out-btn">Log out</div>
-        </div> */}
         <ControlPanel user={user} />
       </header>
 
       <Router>
         <Routes>
           <Route path='/' Component={Home} />
-          <Route path='/auth' Component={Auth} />
+          <Route path='/auth/log-in' Component={LogIn} />
+          <Route path='/auth/sign-up' Component={SignUp} />
           <Route path='/tasks/:id' Component={Tasks} />
           <Route path='*' Component={NotFoundPage} />
         </Routes>
       </Router>
 
-      <footer className='App-footer'>hello world</footer>
+      <footer className={`App-footer ${window.location.href.includes('/auth/') ? 'hide' : ''}`}>hello world</footer>
 
       {<MessageSystem />}
     </div>

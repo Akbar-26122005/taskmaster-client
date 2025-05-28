@@ -27,28 +27,7 @@
 
 .main-title {
   margin-left: 10vw;
-  font-size: 3vw;
-}
-
-.control-panel {
-  margin-right: 60px;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  & .user-name {
-    text-decoration: underline;
-  }
-
-  & .log-out-btn {
-    font-size: 15px;
-    cursor: pointer;
-  }
-}
-
-.user-name, .log-out {
-  cursor: pointer;
+  font-size: 40px;
 }
 
 .App-footer {

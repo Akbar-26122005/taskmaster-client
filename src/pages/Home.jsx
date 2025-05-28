@@ -75,7 +75,7 @@ function Home() {
     const toolClick = (e) => {
         if (e.target.classList.contains('add-tool')) {
             setProjectCreator(<ProjectCreator closed={() => setProjectCreator(null)} update={() => setRefreshTrigger(prev => !prev)} />);
-        } else if (e.target.classList.contains('delete-tool')) {
+        } else if (e.target.classList.contains('del-tool')) {
             setSelectMode(!selectMode);
             if (!selectMode) setSelectedItems([]);
         }
@@ -95,7 +95,7 @@ function Home() {
                     <img
                         src={del_icon}
                         alt="add"
-                        className="tool del-tool"
+                        className={`tool del-tool ${selectMode && 'select-mode'}`}
                         onClick={toolClick}
                     />
                 </div>

@@ -14,16 +14,24 @@ function App() {
   useEffect(() => {
     const fetchingData = async () => {
       try {
-        const response = await fetch('/check');
+        const response = await fetch('http://localhost:5050/auth/check', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          credentials: 'include'
+        });
 
-        if (!response.ok) {
+        if (!response.ok)
           throw new Error('');
-        }
 
         const data = await response.json();
 
         if (!data.isAuthenticated)
           throw new Error('Пользователь еще не авторизовалсяy');
+
+        if (!data.user)
+          throw new Error('User is null');
 
         setUser(data.user);
       } catch (err) {
@@ -45,8 +53,8 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' Component={Home} />
-          <Route path='/auth/log-in' Component={LogIn} />
-          <Route path='/auth/sign-up' Component={SignUp} />
+          <Route path='/auth/log-in' element={<LogIn _user={user} _setUser={setUser} />} />
+          <Route path='/auth/sign-up' element={<SignUp _user={user} _setUser={setUser} />} />
           <Route path='/tasks/:id' Component={Tasks} />
           <Route path='*' Component={NotFoundPage} />
         </Routes>

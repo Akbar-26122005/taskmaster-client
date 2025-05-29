@@ -3,18 +3,108 @@
     min-height: 100vh;
     align-content: center;
     justify-items: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .Auth-background > .log-in-form {
     width: 400px;
     height: 300px;
-    background: #252836;
+    background: #151b23;
     border-radius: 12px;
+    display: flex; flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
 
-    align-content: center;
-    justify-items: center;
+.log-in-form > .row {
+    display: flex; flex-direction: column;
+    align-items: start;
+    gap: 6px;
+    color: #fff;
+}
+
+.log-in-form > .row > input {
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    background: #0d1117;
+    border: 2px solid #3d444d;
+    border-radius: 8px;
+    color: #f0f6fc;
+    padding: 4px 10px;
+    
+    &:focus {
+        border-color: #1f6feb;
+    }
+}
+
+.log-in-form .submit-btn {
+    padding: 8px 32px;
+    background: #29903b;
+    color: #f0f6fc;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+
+    &:hover {
+        background: #3aa14c;
+    }
+}
+
+
+.tasks_background {
+    width: 50vw; height: 100vh;
+    position: absolute;
+    top: 0; left: 0;
 }
 
 .Auth-background > .sign-up-form {
-    
+    width: 50vw; height: 100vh;
+    position: absolute;
+    top: 0; right: 0;
+    background: #fff;
+    display: flex; flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    gap: 20px;
+}
+
+.sign-up-form > .row {
+    display: flex; flex-direction: column;
+    align-items: start;
+    gap: 6px;
+}
+
+.sign-up-form > .row > input {
+    outline: none;
+    font-size: 14px;
+    border: 2px solid #3d444d;
+    border-radius: 8px;
+    padding: 6px 14px;
+    width: 300px;
+
+    &:focus {
+        border-color: #1f6feb;
+    }
+}
+
+.sign-up-form > .row > button {
+    border: none;
+    border-radius: 4px;
+    background: #1f2328;
+    color: #fff;
+    font-size: 16px;
+    padding: 12px 32px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: #32383f;
+    }
 }

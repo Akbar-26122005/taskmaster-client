@@ -1,6 +1,5 @@
 import React from "react";
 import '../styles/controlPanel.css';
-import { useNavigate } from "react-router-dom";
 
 function ControlPanel({ user }) {
     const className = 'control-panel no-copy';

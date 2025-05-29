@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/controlPanel.css';
 
-function ControlPanel({ user }) {
+function ControlPanel({ user, setUser }) {
     const className = 'control-panel no-copy';
 
     const Authorization = e => {
@@ -9,6 +9,17 @@ function ControlPanel({ user }) {
             window.location.assign('/auth/log-in');
         } else if (e.target.innerText === 'Sign up') {
             window.location.assign('auth/sign-up');
+        }
+    };
+
+    const handleLogOut = async e => {
+        try {
+            const response = await fetch('http://localhost:5050/auth/logout');
+
+            if (!response.ok)
+                throw new Error('Fetching failed');
+        } catch (err) {
+            console.log('Error:', err);
         }
     };
 
@@ -21,7 +32,7 @@ function ControlPanel({ user }) {
         </div>
         : <div className={className}>
             <div className="user-name">{user.first_name}</div>
-            <div className="log-out-btn">Log out</div>
+            <div className="log-out-btn" onClick={handleLogOut}>Log out</div>
         </div>
     );
 }

@@ -23,12 +23,12 @@ function App() {
         });
 
         if (!response.ok)
-          throw new Error('');
+          throw new Error('Fetching failed');
 
         const data = await response.json();
 
         if (!data.isAuthenticated)
-          throw new Error('Пользователь еще не авторизовалсяy');
+          throw new Error('User is not authenticated');
 
         if (!data.user)
           throw new Error('User is null');
@@ -47,7 +47,7 @@ function App() {
     <div className="App">
       <header className={`App-header no-copy ${ window.location.href.includes('/auth/') ? 'hide' : '' }`}>
         <h1 className="main-title">task master</h1>
-        <ControlPanel user={user} />
+        <ControlPanel user={user} setUser={setUser} />
       </header>
 
       <Router>

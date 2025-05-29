@@ -18,12 +18,12 @@ export const LogIn = ({ _user, _setUser }) => {
                 });
             
                 if (!response.ok)
-                    throw new Error('Fetching error');
+                    throw new Error('Fetching failed');
 
                 const data = await response.json();
 
                 if (!data.isAuthenticated)
-                    throw new Error('user is not authenticated');
+                    throw new Error('User is not authenticated');
 
                 if (!data.user)
                     throw new Error('User is null');
@@ -47,10 +47,10 @@ export const LogIn = ({ _user, _setUser }) => {
                     'Content-Type': 'application/json'
                 },
                 credentials: 'include',
-                body: {
+                body: JSON.stringify({
                     email,
                     password
-                }
+                })
             });
 
             if (!response.ok)
@@ -118,13 +118,13 @@ export const SignUp = ({ _user, _setUser }) => {
                     'Content-Type': 'application/json'
                 },
                 credentials: 'include',
-                body: {
+                body: JSON.stringify({
                     email: email,
                     password: password,
                     first_name: firstName,
                     last_name: lastName,
                     middle_name: middleName
-                }
+                })
             });
 
             if (!response.ok)

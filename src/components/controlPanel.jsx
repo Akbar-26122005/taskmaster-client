@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/controlPanel.css';
 
-function ControlPanel({ user, setUser }) {
+function ControlPanel({ user }) {
     const className = 'control-panel no-copy';
 
     const Authorization = e => {
@@ -14,10 +14,18 @@ function ControlPanel({ user, setUser }) {
 
     const handleLogOut = async e => {
         try {
-            const response = await fetch('http://localhost:5050/auth/logout');
+            const response = await fetch('http://localhost:5050/auth/logout', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include'
+            });
 
             if (!response.ok)
                 throw new Error('Fetching failed');
+
+            window.location.reload();
         } catch (err) {
             console.log('Error:', err);
         }

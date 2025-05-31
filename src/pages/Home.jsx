@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import '../styles/Home.css';
-import ProjectCreator from "../components/listCreator";
 // import { showMessage } from "../components/message";
-import ListTile from "../components/list";
+import ListTile, { ListCreator } from "../components/list";
 import add_icon from '../resources/add-icon.svg';
 import del_icon from '../resources/del-icon.svg';
 
-function Home() {
+function Home({ user }) {
     const [refreshTrigger, setRefreshTrigger] = useState(false);
-    const [projectCreator, setProjectCreator] = useState(null);
+    const [listCreator, setListCreator] = useState(null);
     const [lists, setLists] = useState([]);
     const [selectMode, setSelectMode] = useState(false);
     const [selectedItems, setSelectedItems] = useState([]);
@@ -16,7 +15,7 @@ function Home() {
     useEffect(() => {
         const fetchingData = async () => {
             try {
-                const response = await fetch(`http://localhost:5050/lists/get?user_id=1`);
+                const response = await fetch(`http://localhost:5050/lists/get?user_id=${user.id}`);
                 
                 const dataJson = await response.json();
                 const data = dataJson.data;
@@ -37,10 +36,10 @@ function Home() {
         }
 
         fetchingData();
-    }, [refreshTrigger]);
+    }, [refreshTrigger, user]);
 
     const handleSelect = (id) => {
-        setSelectedItems(prev => 
+        setSelectedItems(prev =>
             prev.includes(id)
             ? prev.filter(itemId => itemId !== id)
             : [...prev, id]
@@ -73,8 +72,9 @@ function Home() {
     };
 
     const toolClick = (e) => {
+        if (user === null) return;
         if (e.target.classList.contains('add-tool')) {
-            setProjectCreator(<ProjectCreator closed={() => setProjectCreator(null)} update={() => setRefreshTrigger(prev => !prev)} />);
+            setListCreator(<ListCreator closed={() => setListCreator(null)} update={() => setRefreshTrigger(prev => !prev)} user_id={user.id} />);
         } else if (e.target.classList.contains('del-tool')) {
             setSelectMode(!selectMode);
             if (!selectMode) setSelectedItems([]);
@@ -116,7 +116,7 @@ function Home() {
                 {(selectMode && selectedItems.length > 0) && (
                     <div className="delete-button" onClick={() => handleDelete()}>Delete</div>
                 )}
-                {projectCreator !== null && projectCreator}
+                {listCreator !== null && listCreator}
             </div>
         </div>
     );

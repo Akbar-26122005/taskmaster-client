@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import '../styles/Auth.css';
+import { showMessage } from "../components/message";
 import tasks_background from '../resources/tasks_background.jpg';
 
 export const LogIn = ({ _user, _setUser }) => {
@@ -29,6 +30,7 @@ export const LogIn = ({ _user, _setUser }) => {
                     throw new Error('User is null');
 
                 _setUser(data.user);
+                window.location.replace('../');
             } catch (err) {
                 console.error(err);
             }
@@ -62,6 +64,7 @@ export const LogIn = ({ _user, _setUser }) => {
                 throw new Error('Couldn\'t log in');
             }
             _setUser(data.user);
+            window.location.replace('../');
         } catch (err) {
             console.error(err);
         }
@@ -127,8 +130,9 @@ export const SignUp = ({ _user, _setUser }) => {
                 })
             });
 
-            if (!response.ok)
-                throw new Error('Fetching failed');
+            if (!response.ok) {
+                if (response.status === 409) showMessage('Email already exists', 'error-message');
+            }
 
             const data = await response.json();
 
@@ -136,6 +140,7 @@ export const SignUp = ({ _user, _setUser }) => {
                 throw new Error(data.message);
 
             _setUser(data.user);
+            window.location.replace('../');
         } catch (err) {
         }
     };

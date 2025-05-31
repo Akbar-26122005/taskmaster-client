@@ -10,6 +10,7 @@ import ControlPanel from './components/controlPanel';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchingData = async () => {
@@ -37,30 +38,43 @@ function App() {
       } catch (err) {
         setUser(null);
         return;
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchingData();
   }, []);
 
+  if (loading) return null;
+
   return (
     <div className="App">
-      <header className={`App-header no-copy ${ window.location.href.includes('/auth/') ? 'hide' : '' }`}>
+      <header className={`App-header no-copy ${
+          window.location.href.includes('/auth/')
+          ? 'hide'
+          : '' }`
+        }>
         <h1 className="main-title">task master</h1>
-        <ControlPanel user={user} setUser={setUser} />
+        <ControlPanel user={user} />
       </header>
 
       <Router>
         <Routes>
-          <Route path='/' Component={Home} />
+          <Route path='/' element={<Home user={user} />} />
           <Route path='/auth/log-in' element={<LogIn _user={user} _setUser={setUser} />} />
           <Route path='/auth/sign-up' element={<SignUp _user={user} _setUser={setUser} />} />
-          <Route path='/tasks/:id' Component={Tasks} />
-          <Route path='*' Component={NotFoundPage} />
+          <Route path='/tasks/:id' element={<Tasks user={user} />} />
+          <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </Router>
 
-      <footer className={`App-footer ${window.location.href.includes('/auth/') ? 'hide' : ''}`}>hello world</footer>
+      <footer className={`App-footer ${
+          window.location.href.includes('/auth/')
+          || user
+          ? 'hide'
+          : ''}`
+        }>hello world</footer>
 
       {<MessageSystem />}
     </div>

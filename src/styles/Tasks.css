@@ -1,12 +1,59 @@
-.tasks-list {
-    width: 800px; height: 600px;
-    display: flex; flex-direction: column;
-    background: var(--color3);
-    border: 1px solid var(--color2);
-    border-radius: 14px;
-    overflow-y: scroll;
-    position: relative;
-    padding: 80px 20px 20px 20px;
-    gap: 20px;
+.Tasks {
+    margin-top: 140px;
 }
 
+.Tasks-header {
+    height: 60px;
+    background: var(--color5);
+}
+
+.Tasks-content {
+    display: flex;
+    height: 600px;
+}
+
+.tasks-list {
+    width: 500px;
+    background-color: #eee;
+    display: flex; flex-direction: column;
+    background: var(--color3);
+    border-right: 1px solid var(--color2);
+    border-radius: 0 0 0 8px;
+    overflow-y: scroll;
+    position: relative;
+    padding: 20px 10px;
+    gap: 4px;
+}
+
+.tasks-options {
+    width: 400px;
+    background-color: #aaa;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    background: #eee;
+    padding: 20px 10px 20px 40px;
+    border: 1px solid #000;
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    transition: all 0.4s ease-in;
+}
+
+.task-title {
+    overflow: hidden;
+    transition: all 0.3 ease;
+}
+
+.task > input {
+    width: 20px;
+    cursor: pointer;
+}
+
+.task-title.done {
+    text-decoration: line-through;
+    color: gray;
+}

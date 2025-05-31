@@ -13,11 +13,10 @@
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
-}
 
-.control-panel > .log-in-btn {
     &:hover {
-        color: rgba(255, 255, 255, 0.8);
+        color: rgba(255, 255, 255, 0.7);
+        border-color: rgba(255, 255, 255, 0.8);
     }
 }
 
@@ -25,11 +24,6 @@
     border: 1px solid #fff;
     border-radius: 4px;
     padding: 6px 12px;
-
-    &:hover {
-        color: rgba(255, 255, 255, 0.7);
-        border-color: rgba(255, 255, 255, 0.8);
-    }
 }
 
 /* Пользователь не авторизован */

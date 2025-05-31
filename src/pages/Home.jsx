@@ -83,9 +83,9 @@ function Home({ user }) {
 
     return (
         <div className="home">
-            <div className="header">
-                <h3 className="no-copy">tasks lists</h3>
-                <div className="tools no-copy">
+            <div className="header no-copy">
+                <h3>tasks lists</h3>
+                <div className="tools">
                     <img
                         src={add_icon}
                         alt="add"

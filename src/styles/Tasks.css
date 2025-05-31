@@ -1,19 +1,47 @@
 .Tasks {
     margin-top: 140px;
+    transition: all 0.3s ease;
 }
 
-.Tasks-header {
-    height: 60px;
-    background: var(--color5);
+.Tasks > .header {
+    transition: all 0.3 ease;
 }
+
+/* Элемент tool */
+.Tasks .tool {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 3px;
+    width: 40px; height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+.Tasks .tool .tile {
+    width: 25px;
+    height: 4px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.Tasks .tool.active {
+    transform: rotate(90deg);
+
+    & > .tile {
+        width: 5px;
+        border-radius: 10px;
+    }
+}
+/* Конец элемента tool */
 
 .Tasks-content {
     display: flex;
     height: 600px;
+    transition: all 0.3s ease;
 }
 
 .tasks-list {
-    width: 500px;
+    width: 600px;
     background-color: #eee;
     display: flex; flex-direction: column;
     background: var(--color3);
@@ -26,21 +54,38 @@
 }
 
 .tasks-options {
-    width: 400px;
+    /* width: 400px; */
     background-color: #aaa;
+    display: none; flex-direction: column;
+    align-items: start; justify-content: start;
+    transition: all 0.3s ease;
+}
+
+.tasks-options.active {
+    width: 400px;
+    display: flex;
+}
+
+.tasks-options > .row {
+    display: flex; justify-content: space-between;
+    padding: 20px 20px;
 }
 
 .task {
     display: flex;
     justify-content: space-between;
     background: #eee;
-    padding: 20px 10px 20px 40px;
+    padding: 10px 40px;
     border: 1px solid #000;
     border-radius: 4px;
 
     cursor: pointer;
 
-    transition: all 0.4s ease-in;
+    transition: all 0.3s ease;
+}
+
+.task.select {
+    background: #aaa;
 }
 
 .task-title {
